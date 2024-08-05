@@ -3,6 +3,7 @@ package br.com.alura.orgs.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import br.com.alura.orgs.R
 import br.com.alura.orgs.databinding.ActivityDetalhesProdutoBinding
 import br.com.alura.orgs.extensions.formataParaMoedaBrasileira
@@ -25,7 +26,19 @@ class DetalhesProdutoActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_details_product, menu)
         return super.onCreateOptionsMenu(menu)
     }
-    
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_details_produtct_edit -> {
+
+            }
+            R.id.menu_details_produtct_remove -> {
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun tentaCarregarProduto() {
         intent.getParcelableExtra<Produto>(CHAVE_PRODUTO)?.let { produtoCarregado ->
             preencheCampos(produtoCarregado)
