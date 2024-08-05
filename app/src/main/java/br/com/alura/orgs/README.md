@@ -1,1 +1,1 @@
-### Ponto inicial 1 modulo 2 (percistencia de dados com roomgit) Implementando o Room no APP
+### Ponto inicial 2 modulo 2 (percistencia de dados com roomgit) Configurando database
