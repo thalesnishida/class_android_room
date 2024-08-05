@@ -15,6 +15,7 @@ class FormularioProdutoActivity : AppCompatActivity() {
         ActivityFormularioProdutoBinding.inflate(layoutInflater)
     }
     private var url: String? = null
+    private var produtoId: Long = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,14 @@ class FormularioProdutoActivity : AppCompatActivity() {
                     url = imagem
                     binding.activityFormularioProdutoImagem.tentaCarregarImagem(url)
                 }
+        }
+        intent.getParcelableExtra<Produto>(CHAVE_PRODUTO)?.let { produtoCarregado ->
+            title = "Editar Produto"
+            produtoId = produtoCarregado.id
+            binding.activityFormularioProdutoImagem.tentaCarregarImagem(produtoCarregado.imagem)
+            binding.activityFormularioProdutoNome.setText(produtoCarregado.nome)
+            binding.activityFormularioProdutoDescricao.setText(produtoCarregado.descricao)
+            binding.activityFormularioProdutoValor.setText(produtoCarregado.valor.toString())
         }
     }
 
