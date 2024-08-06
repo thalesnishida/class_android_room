@@ -1,1 +1,1 @@
-### Ponto inicial aula 1 modulo 6 (percistencia de dados com roomgit)  Buscando produto pelo id
+### Ponto inicial aula 2 modulo 6 (percistencia de dados com roomgit)  Refatorando o projeto
