@@ -12,6 +12,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -32,15 +33,12 @@ class ListaProdutosActivity : AppCompatActivity() {
         setContentView(binding.root)
         configuraRecyclerView()
         configuraFab()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
         lifecycleScope.launch() {
-            val produto = dao.buscarTodos()
-            adapter.atualiza(produto)
+            dao.buscarTodos().collect { produtos ->
+                adapter.atualiza(produtos)
+            }
         }
+
     }
 
     private fun configuraFab() {
